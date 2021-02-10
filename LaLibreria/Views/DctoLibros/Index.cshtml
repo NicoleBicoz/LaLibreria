@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LaLibreria.Models.DctoLibros>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInsert)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IddescuentosNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdlibrosNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInsert)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IddescuentosNavigation.CodDescuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdlibrosNavigation.Autor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IddctoLibros">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IddctoLibros">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

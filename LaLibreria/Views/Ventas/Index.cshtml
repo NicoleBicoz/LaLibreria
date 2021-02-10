@@ -1,0 +1,95 @@
+﻿@model IEnumerable<LaLibreria.Models.Ventas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEmision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descuento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInsert)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaUpdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FolioDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdestadosVentasNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdtipoDocumentoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEmision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInsert)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaUpdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FolioDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.Rut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdestadosVentasNavigation.IdestadosVentas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdtipoDocumentoNavigation.IdtipoDocumento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idventas">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idventas">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idventas">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
